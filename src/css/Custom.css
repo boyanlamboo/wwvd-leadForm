@@ -1,0 +1,9 @@
+.navbar {
+    background-color: #201047;
+}
+
+form {
+    padding: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+}

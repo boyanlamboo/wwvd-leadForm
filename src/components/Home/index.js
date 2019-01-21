@@ -9,12 +9,17 @@ const HomePage = () => (
             <Row>
                 <Col lg={12}>
                     <h1>Leads</h1>
-                    <p>Add a new lead!</p>
+                    <p>Voeg een nieuwe lead toe door onderstaand formulier zo complete mogelijk in te vullen!</p>
                 </Col>
             </Row>
             <Row>
                 <Col lg={12}>
                     <LeadsList/>
+                </Col>
+            </Row>
+            <Row>
+                <Col lg={12} md={12} sm={12}>
+                    <p>Bezoek <a href='https://www.trunkrs.nl'>de website</a></p>
                 </Col>
             </Row>
         </Grid>

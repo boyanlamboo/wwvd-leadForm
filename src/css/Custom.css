@@ -2,16 +2,46 @@
     margin-top: 30px;
 }
 
-.navbar {
-    background-color: #201047;
+.logo-img {
+    max-height: 28px;
 }
 
-.navbar-item {
+.navbar {
+    background-color: #201047;
+    height: 70px;
+}
+
+.navbar .nav li {
+    padding-left: 24px;
+}
+
+.navbar .nav li a {
     color: #ffffff;
+}
+
+.navbar .nav li a:hover {
+    text-decoration: none;
+    color: #00D763;
+    transition: 0.25s ease-in;
+}
+
+.navbar-nav{
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.sign-out-button {
+    color: #FF5351 !important;
 }
 
 form {
     padding: 24px;
     border: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: 5px;
+    margin-bottom: 24px;
+}
+
+.form-subtitle {
+    margin: 15px 0px 30px 0px;
 }

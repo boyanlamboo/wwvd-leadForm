@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { Radio } from "react-bootstrap";
+import { Radio, FormGroup } from "react-bootstrap";
 import questionConfig from "../../utils/_QUESTIONS";
 
 class Question extends Component {
@@ -11,7 +11,8 @@ class Question extends Component {
         const thisQuestion = this.props.question;
         return (
             <Fragment>
-                <p>{thisQuestion.question}</p>
+                <FormGroup>
+                    <p><b>{thisQuestion.question}</b></p>
                     {thisQuestion.answers.map(answer => (
                         <Fragment key={`_f_${thisQuestion.question}_a_${JSON.stringify(answer)}_`}>
                             <Radio
@@ -21,10 +22,11 @@ class Question extends Component {
                                 value={answer.value}
                                 onChange={(event) => this.props.onChange(thisQuestion.id, thisQuestion.question, event.target.value, answer.answer)}
                             >
-                                {answer.answer}
-                            </Radio>
+                                &nbsp;{answer.answer}
+                            </Radio>{' '}
                         </Fragment>
                     ))}
+                </FormGroup>
             </Fragment>
         )
     }

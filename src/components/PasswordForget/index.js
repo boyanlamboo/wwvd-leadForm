@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+import {Button, ControlLabel, FormControl, FormGroup} from "react-bootstrap";
 
 const PasswordForgetPage = () => (
-    <Fragment>
+    <div className='container'>
         <h1>PasswordForget</h1>
         <PasswordForgetForm />
-    </Fragment>
+    </div>
 );
 
 const INITIAL_STATE = {
@@ -49,17 +50,22 @@ class PasswordForgetFormBase extends Component {
 
         return (
             <form onSubmit={this.onSubmit}>
-                <input
-                    name="email"
-                    value={this.state.email}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Email Address"
-                />
-                <button disabled={isInvalid} type="submit">
-                    Reset My Password
-                </button>
-
+                <FormGroup>
+                    <ControlLabel>E-mailadres</ControlLabel>
+                    <FormControl
+                        type="email"
+                        name="email"
+                        value={this.state.email}
+                        placeholder="Bijv. henkdevries@ziggo.nl"
+                        onChange={this.onChange}
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Button disabled={isInvalid} bsStyle="success" type="submit" onSubmit={this.onSubmit}>Reset wachtwoord</Button>
+                </FormGroup>
+                <FormGroup>
+                    <Link to={ROUTES.SIGN_IN}>Terug</Link>
+                </FormGroup>
                 {error && <p>{error.message}</p>}
             </form>
         );
@@ -68,7 +74,7 @@ class PasswordForgetFormBase extends Component {
 
 const PasswordForgetLink = () => (
     <p>
-        <Link to={ROUTES.PASSWORD_FORGET}>Forgot Password?</Link>
+        <small><Link to={ROUTES.PASSWORD_FORGET}>Wachtwoord vergeten? Klik hier</Link></small>
     </p>
 );
 

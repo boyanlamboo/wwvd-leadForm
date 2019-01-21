@@ -4,16 +4,13 @@ import { compose } from 'recompose';
 import { PasswordForgetLink } from '../PasswordForget';
 import { withFirebase } from '../Firebase';
 import * as ROUTES from '../../constants/routes';
+import {Button, ControlLabel, FormControl, FormGroup} from "react-bootstrap";
 
 const SignInPage = () => (
-    <Fragment>
-        <h1>Sign In</h1>
+    <div className='container'>
+        <h1>Inloggen</h1>
         <SignInForm />
-        <PasswordForgetLink/>
-        <p>
-            Don't have an account? <Link to={ROUTES.SIGN_UP}>Sign Up</Link>
-        </p>
-    </Fragment>
+    </div>
 );
 
 const INITIAL_STATE = {
@@ -57,25 +54,34 @@ class SignInFormBase extends Component {
         return (
 
                 <form onSubmit={this.onSubmit}>
-                    <input
-                        name="email"
-                        value={email}
-                        onChange={this.onChange}
-                        type="text"
-                        placeholder="Email Address"
-                    />
-                    <input
-                        name="password"
-                        value={password}
-                        onChange={this.onChange}
-                        type="password"
-                        placeholder="Password"
-                    />
-                    <button disabled={isInvalid} type="submit">
-                        Sign In
-                    </button>
-
-                    {error && <p>{error.message}</p>}
+                    <FormGroup>
+                        <ControlLabel>E-mailadres</ControlLabel>
+                        <FormControl
+                            type="email"
+                            name="email"
+                            value={email}
+                            placeholder="Bijv. henkdevries@ziggo.nl"
+                            onChange={this.onChange}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <ControlLabel>Wachtwoord</ControlLabel>
+                        <FormControl
+                            type="password"
+                            name="password"
+                            value={password}
+                            placeholder=""
+                            onChange={this.onChange}
+                        />
+                    </FormGroup>
+                    <PasswordForgetLink/>
+                    <FormGroup>
+                        <Button disabled={isInvalid} bsStyle="success" type="submit" onSubmit={this.onSubmit}>Inloggen</Button>
+                    </FormGroup>
+                    <FormGroup>
+                        <p>Nog geen account? <Link to={ROUTES.SIGN_UP}>Klik hier om je te registreren</Link></p>
+                        {error && <p>{error.message}</p>}
+                    </FormGroup>
                 </form>
         );
     }

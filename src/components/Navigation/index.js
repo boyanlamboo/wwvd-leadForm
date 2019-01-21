@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SignOutButton from '../SignOut';
 import * as ROUTES from '../../constants/routes';
 import { AuthUserContext } from '../Session';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import { Navbar, Nav, NavItem } from 'react-bootstrap';
 
 const Navigation = () => (
     <div>
@@ -17,31 +17,38 @@ const Navigation = () => (
 );
 
 const NavigationAuth = () => (
-<Fragment>
-    <Navbar inverse>
-        <Navbar.Header>
-            <Navbar.Brand>
-                <Link to={ROUTES.HOME}>Home</Link>
-            </Navbar.Brand>
-        </Navbar.Header>
-        <Nav pullRight>
-            <NavItem eventKey={1}>
-                <Link to={ROUTES.HOME}>Leads</Link>
-            </NavItem>
-            <NavItem eventKey={2}>
-                <Link to={ROUTES.ACCOUNT}>Account</Link>
-            </NavItem>
-        </Nav>
-    </Navbar>
-</Fragment>
+    <Fragment>
+        <Navbar inverse>
+            <Navbar.Header>
+                <Navbar.Brand>
+                    <img className='logo-img' src='https://trunkrs.nl/wp-content/uploads/2019/01/Trunkrs_EPS_DIA_RGB_WEB.png' alt='logo' />
+                </Navbar.Brand>
+            </Navbar.Header>
+            <Nav pullRight>
+                <NavItem eventKey={1}>
+                    <Link to={ROUTES.HOME}>Leads</Link>
+                </NavItem>
+                <NavItem eventKey={2}>
+                    <Link to={ROUTES.ACCOUNT}>Account</Link>
+                </NavItem>
+                <NavItem eventKey={3}>
+                    <SignOutButton />
+                </NavItem>
+            </Nav>
+        </Navbar>
+    </Fragment>
 );
 
 const NavigationNonAuth = () => (
-    <ul>
-        <li>
-            <Link to={ROUTES.SIGN_IN}>Sign In</Link>
-        </li>
-    </ul>
+    <Fragment>
+        <Navbar inverse>
+            <Navbar.Header>
+                <Navbar.Brand>
+                    <img className='logo-img' src='https://trunkrs.nl/wp-content/uploads/2019/01/Trunkrs_EPS_DIA_RGB_WEB.png' alt='logo' />
+                </Navbar.Brand>
+            </Navbar.Header>
+        </Navbar>
+    </Fragment>
 );
 
 export default Navigation;

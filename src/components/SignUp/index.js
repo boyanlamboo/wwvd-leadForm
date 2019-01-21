@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import { withFirebase } from '../Firebase';
+import { Link } from 'react-router-dom';
 import * as ROUTES from '../../constants/routes';
+import {FormGroup, ControlLabel, FormControl, Button} from 'react-bootstrap';
 
 const SignUpPage = () => (
-    <div>
-        <h1>SignUp</h1>
+    <div className='container'>
+        <h1>Registreren</h1>
         <SignUpForm />
     </div>
 );
@@ -74,39 +76,55 @@ class SignUpFormBase extends Component {
 
         return (
             <form onSubmit={this.onSubmit}>
-                <input
-                    name="username"
-                    value={username}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Full Name"
-                />
-                <input
-                    name="email"
-                    value={email}
-                    onChange={this.onChange}
-                    type="text"
-                    placeholder="Email Address"
-                />
-                <input
-                    name="passwordOne"
-                    value={passwordOne}
-                    onChange={this.onChange}
-                    type="password"
-                    placeholder="Password"
-                />
-                <input
-                    name="passwordTwo"
-                    value={passwordTwo}
-                    onChange={this.onChange}
-                    type="password"
-                    placeholder="Confirm Password"
-                />
-                <button disabled={isInvalid} type="submit">
-                    Sign Up
-                </button>
-
-                {error && <p>{error.message}</p>}
+                <FormGroup>
+                    <ControlLabel>Naam</ControlLabel>
+                    <FormControl
+                        type="text"
+                        name="username"
+                        value={username}
+                        placeholder="Bijv. Henk de Vries"
+                        onChange={this.onChange}
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <ControlLabel>E-mailadres</ControlLabel>
+                    <FormControl
+                        type="email"
+                        name="email"
+                        value={email}
+                        placeholder="Bijv. henkdevries@ziggo.nl"
+                        onChange={this.onChange}
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <ControlLabel>Wachtwoord</ControlLabel>
+                    <FormControl
+                        type="password"
+                        name="passwordOne"
+                        value={passwordOne}
+                        placeholder=""
+                        onChange={this.onChange}
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <ControlLabel>Herhaal wachtwoord</ControlLabel>
+                    <FormControl
+                        type="password"
+                        name="passwordTwo"
+                        value={passwordTwo}
+                        placeholder=""
+                        onChange={this.onChange}
+                    />
+                </FormGroup>
+                <FormGroup>
+                    <Button disabled={isInvalid} bsStyle="success" type="submit" onSubmit={this.onSubmit}>Registreren</Button>
+                </FormGroup>
+                <FormGroup>
+                    <p>Heb je al een account? <Link to={ROUTES.SIGN_IN}>Klik hier om in te loggen</Link></p>
+                </FormGroup>
+                <FormGroup>
+                    {error && <p>{error.message}</p>}
+                </FormGroup>
             </form>
         );
     }

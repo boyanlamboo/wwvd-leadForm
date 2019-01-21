@@ -66,8 +66,10 @@ class LeadsList extends Component {
         return (
             <div className="container">
                 <form onSubmit={this.handleFormSubmit}>
+                    <h4 className='form-subtitle'>Persoonlijke informatie</h4>
+                    <hr />
                     <FormGroup>
-                        <ControlLabel>Naam van contactpersoon</ControlLabel>
+                        <ControlLabel><b>Naam van contactpersoon</b></ControlLabel>
                         <FormControl
                             name="leadName"
                             type="text"
@@ -78,7 +80,7 @@ class LeadsList extends Component {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <ControlLabel>Naam van bedrijf</ControlLabel>
+                        <ControlLabel><b>Naam van bedrijf</b></ControlLabel>
                         <FormControl
                             name="leadCompany"
                             type="text"
@@ -89,18 +91,7 @@ class LeadsList extends Component {
                         />
                     </FormGroup>
                     <FormGroup>
-                        <ControlLabel>(optioneel) Telefoonnummer</ControlLabel>
-                        <FormControl
-                            name="leadTel"
-                            type="text"
-                            value={leadTel}
-                            placeholder="0612345678"
-                            onChange={this.handleInputChange}
-                            required
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <ControlLabel>(optioneel) E-mailadres</ControlLabel>
+                        <ControlLabel><b>E-mailadres</b></ControlLabel>
                         <FormControl
                             name="leadEmail"
                             type="text"
@@ -110,11 +101,22 @@ class LeadsList extends Component {
                             required
                         />
                     </FormGroup>
-
-                    /* Render all questions */
                     <FormGroup>
-                        <QuestionList onAnswerQuestion={this.onAnswerQuestion} />
+                        <ControlLabel><b>(optioneel) Telefoonnummer</b></ControlLabel>
+                        <FormControl
+                            name="leadTel"
+                            type="text"
+                            value={leadTel}
+                            placeholder="bijv. 0612345678"
+                            onChange={this.handleInputChange}
+                        />
                     </FormGroup>
+
+                    <h4 className="form-subtitle">Vragen</h4>
+                    <hr />
+
+                    {/* Render all questions */}
+                    <QuestionList onAnswerQuestion={this.onAnswerQuestion} />
 
                     <FormGroup>
                         <Button bsStyle="success" type="submit" onSubmit={this.handleFormSubmit}>Lead opslaan</Button>

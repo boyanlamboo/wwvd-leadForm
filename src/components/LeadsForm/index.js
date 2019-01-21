@@ -8,16 +8,20 @@ import questionConfig from '../../utils/_QUESTIONS.json';
 class LeadsList extends Component {
     constructor(props) {
         super(props);
-        const questions = [];
-        questionConfig.questions.forEach(() => questions.push(null));
         this.state = {
             leadName: "",
             leadCompany: "",
             leadTel: "",
             leadEmail: "",
-            questions,
+            questions: this.getNewQuestionList(),
         };
         this.onAnswerQuestion = this.onAnswerQuestion.bind(this);
+    }
+
+    getNewQuestionList() {
+        const questions = [];
+        questionConfig.questions.forEach(() => questions.push(null));
+        return questions;
     }
 
     onAnswerQuestion(questionId, question, answerValue, answer) {
@@ -51,7 +55,7 @@ class LeadsList extends Component {
             leadCompany: "",
             leadTel: "",
             leadEmail: "",
-            questions: null,
+            questions: this.getNewQuestionList(),
         }, () => {
             alert('Lead succesvol opgeslagen!');
         });

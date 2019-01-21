@@ -20,9 +20,9 @@ class LeadsList extends Component {
         this.onAnswerQuestion = this.onAnswerQuestion.bind(this);
     }
 
-    onAnswerQuestion(questionId, answer) {
+    onAnswerQuestion(questionId, answerValue, answer) {
         const questions = this.state.questions;
-        questions[parseInt(questionId, 10)] = answer;
+        questions[parseInt(questionId, 10)] = {value: answerValue, answer,};
         this.setState({ questions, });
     }
 

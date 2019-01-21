@@ -2,8 +2,6 @@ import React, { Component, Fragment } from 'react';
 import Question from '../Question';
 import questionConfig from '../../utils/_QUESTIONS.json';
 
-console.log(questionConfig);
-
 class QuestionList extends Component {
     constructor(props) {
         super(props);
@@ -18,9 +16,8 @@ class QuestionList extends Component {
         return (
             <Fragment>
                 {questionList.map((q) => {
-                    console.log(q);
                     return (
-                        <Question key={`q${q.id}`} question={q} state={this.state} onChange={this.props.onAnswerQuestion} />
+                        <Question key={`_q_${q.id}_`} question={q} state={this.state} onChange={this.props.onAnswerQuestion} />
                     )
                 })}
             </Fragment>

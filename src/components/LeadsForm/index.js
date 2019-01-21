@@ -3,22 +3,27 @@ import { connect } from "react-redux";
 import QuestionList from "../QuestionList";
 import * as actions from "../../actions";
 import { ControlLabel, FormControl, FormGroup, Button } from 'react-bootstrap'
+import questionConfig from '../../utils/_QUESTIONS.json';
 
 class LeadsList extends Component {
     constructor(props) {
         super(props);
+        const questions = [];
+        questionConfig.questions.forEach(() => questions.push(null));
         this.state = {
             leadName: "",
             leadCompany: "",
             leadTel: "",
             leadEmail: "",
-            questions: null,
-        }
+            questions,
+        };
         this.onAnswerQuestion = this.onAnswerQuestion.bind(this);
     }
 
-    onAnswerQuestion(answer) {
-        this.setState({ questions: answer });
+    onAnswerQuestion(questionId, answer) {
+        const questions = this.state.questions;
+        questions[parseInt(questionId, 10)] = answer;
+        this.setState({ questions, });
     }
 
     handleInputChange = event => {
@@ -103,7 +108,7 @@ class LeadsList extends Component {
                     </FormGroup>
 
                     /* Render all questions */
-                    <p>Questions = {console.log(JSON.stringify(this.state.questions))} </p>
+                    <p>Questions = {JSON.stringify(this.state.questions)} </p>
                     <FormGroup>
                         <QuestionList onAnswerQuestion={this.onAnswerQuestion} />
                     </FormGroup>

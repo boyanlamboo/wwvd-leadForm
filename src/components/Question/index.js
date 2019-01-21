@@ -13,32 +13,18 @@ class Question extends Component {
             <Fragment>
                 <p>{thisQuestion.question}</p>
                     {thisQuestion.answers.map(answer => (
-                        <Fragment key={`f${thisQuestion.question}a${JSON.stringify(answer)}`}>
+                        <Fragment key={`_f_${thisQuestion.question}_a_${JSON.stringify(answer)}_`}>
                             <Radio
-                                key={`q${thisQuestion.id}a${JSON.stringify(answer)}`}
+                                key={`q_${thisQuestion.id}_a_${JSON.stringify(answer)}_`}
                                 type="radio"
                                 name="radioGroup"
+                                questionId={thisQuestion.id}
                                 value={answer.value}
-                                onChange={(event) => this.props.onChange(event.target.value)}
+                                onChange={(event) => {console.log(event.target); return this.props.onChange(thisQuestion.id, event.target.value)}}
                             >
                             {answer.answer}
                             </Radio>
                         </Fragment>
-                            // <div key={answer.id} className="radio">
-                            //     <label>
-                            //         <input
-                            //             type="radio"
-                            //             name="answer"
-                            //             value={{
-                            //                 question: thisQuestion.question,
-                            //                 answer: answer.answer,
-                            //                 value: answer.value,
-                            //             }}
-                            //             onChange={this.handleChange}
-                            //         />
-                            //         {answer.answer}
-                            //     </label>
-                            // </div>
                         ))}
             </Fragment>
         )

@@ -19,7 +19,7 @@ class Question extends Component {
                                 type="radio"
                                 name="radioGroup"
                                 value={answer.value}
-                                onChange={(event) => this.props.onChange(thisQuestion.id, event.target.value, answer.answer)}
+                                onChange={(event) => this.props.onChange(thisQuestion.id, thisQuestion.question, event.target.value, answer.answer)}
                             >
                             {answer.answer}
                             </Radio>

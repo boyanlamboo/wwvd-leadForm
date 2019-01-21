@@ -12,7 +12,13 @@ class LeadsList extends Component {
             leadCompany: "",
             leadTel: "",
             leadEmail: "",
+            question1: null,
         }
+        this.onAnswerQuestion = this.onAnswerQuestion.bind(this);
+    }
+
+    onAnswerQuestion(answer) {
+        this.setState({ question1: answer });
     }
 
     handleInputChange = event => {
@@ -25,7 +31,7 @@ class LeadsList extends Component {
     };
 
     handleFormSubmit = event => {
-        const { leadName, leadCompany, leadTel, leadEmail } = this.state;
+        const { leadName, leadCompany, leadTel, leadEmail, question1 } = this.state;
         const { addLead } = this.props;
         event.preventDefault();
         addLead({
@@ -33,19 +39,21 @@ class LeadsList extends Component {
             company: leadCompany,
             phonenumber: leadTel,
             email: leadEmail,
+            question1: question1,
         });
         this.setState({
             leadName: "",
             leadCompany: "",
             leadTel: "",
             leadEmail: "",
+            question1: null,
         }, () => {
             alert('Lead succesvol opgeslagen!');
         });
     };
 
     renderAddForm = () => {
-        const { leadName, leadCompany, leadTel, leadEmail } = this.state;
+        const { leadName, leadCompany, leadTel, leadEmail, question1 } = this.state;
         return (
             <div class="container">
                 <form onSubmit={this.handleFormSubmit}>
@@ -95,8 +103,9 @@ class LeadsList extends Component {
                     </FormGroup>
 
                     /* Render all questions */
+                    <p>Question 1 = {this.state.question1} </p>
                     <FormGroup>
-                        <QuestionList />
+                        <QuestionList onAnswerQuestion={this.onAnswerQuestion} />
                     </FormGroup>
 
                     <FormGroup>

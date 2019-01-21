@@ -1,23 +1,16 @@
 import React, { Component, Fragment } from 'react';
-import {ControlLabel, FormControl, FormGroup, Radio} from "react-bootstrap";
+import { Radio } from "react-bootstrap";
+import questionConfig from "../../utils/_QUESTIONS";
 
 class Question extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.state = {
-            inputValue: null
-        }
     }
 
-    handleChange(event) {
-        this.setState({inputValue: event.target.value});
-        this.props.sendDataToParent(this.state.inputValue);
-    }
+
 
     render(){
         const thisQuestion = this.props.question;
-        const inputValue = this.state.inputValue;
         return (
             <Fragment>
                 <p>{thisQuestion.question}</p>
@@ -28,7 +21,7 @@ class Question extends Component {
                                 type="radio"
                                 name="radioGroup"
                                 value={answer}
-                                onChange={this.handleChange}
+                                onChange={(event) => this.props.onChange(event.target.value)}
                             >
                             {answer.answer}
                             </Radio>

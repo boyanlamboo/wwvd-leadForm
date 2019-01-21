@@ -7,24 +7,16 @@ class QuestionList extends Component {
         super(props);
         this.state = {
             questionList: questionConfig.questions,
-            dataFromChild: {}
+            question1: null,
         }
     }
 
-    addChildData = (dataFromChild) => {
-        this.setState({
-            dataFromChild: dataFromChild
-        });
-    }
-
     render(){
-        const { questionList, dataFromChild } = this.state;
-        console.log(dataFromChild);
+        const { questionList } = this.state;
         return (
             <Fragment>
-                <p>{dataFromChild.answer}</p>
                 {questionList.map(question => (
-                    <Question key={question} question={question} sendDataToParent={this.addChildData} />
+                    <Question key={question} question={question} state={this.state} onChange={this.props.onAnswerQuestion} />
                 ))}
             </Fragment>
         )

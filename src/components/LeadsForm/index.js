@@ -112,7 +112,6 @@ class LeadsList extends Component {
                     </FormGroup>
 
                     /* Render all questions */
-                    <p>Questions = {JSON.stringify(this.state.questions)} </p>
                     <FormGroup>
                         <QuestionList onAnswerQuestion={this.onAnswerQuestion} />
                     </FormGroup>

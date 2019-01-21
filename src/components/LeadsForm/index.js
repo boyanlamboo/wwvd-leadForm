@@ -12,13 +12,13 @@ class LeadsList extends Component {
             leadCompany: "",
             leadTel: "",
             leadEmail: "",
-            question1: null,
+            questions: null,
         }
         this.onAnswerQuestion = this.onAnswerQuestion.bind(this);
     }
 
     onAnswerQuestion(answer) {
-        this.setState({ question1: answer });
+        this.setState({ questions: answer });
     }
 
     handleInputChange = event => {
@@ -31,7 +31,7 @@ class LeadsList extends Component {
     };
 
     handleFormSubmit = event => {
-        const { leadName, leadCompany, leadTel, leadEmail, question1 } = this.state;
+        const { leadName, leadCompany, leadTel, leadEmail, questions } = this.state;
         const { addLead } = this.props;
         event.preventDefault();
         addLead({
@@ -39,23 +39,23 @@ class LeadsList extends Component {
             company: leadCompany,
             phonenumber: leadTel,
             email: leadEmail,
-            question1: question1,
+            questions,
         });
         this.setState({
             leadName: "",
             leadCompany: "",
             leadTel: "",
             leadEmail: "",
-            question1: null,
+            questions: null,
         }, () => {
             alert('Lead succesvol opgeslagen!');
         });
     };
 
     renderAddForm = () => {
-        const { leadName, leadCompany, leadTel, leadEmail, question1 } = this.state;
+        const { leadName, leadCompany, leadTel, leadEmail, questions } = this.state;
         return (
-            <div class="container">
+            <div className="container">
                 <form onSubmit={this.handleFormSubmit}>
                     <FormGroup>
                         <ControlLabel>Naam van contactpersoon</ControlLabel>
@@ -103,7 +103,7 @@ class LeadsList extends Component {
                     </FormGroup>
 
                     /* Render all questions */
-                    <p>Question 1 = {this.state.question1} </p>
+                    <p>Questions = {console.log(JSON.stringify(this.state.questions))} </p>
                     <FormGroup>
                         <QuestionList onAnswerQuestion={this.onAnswerQuestion} />
                     </FormGroup>

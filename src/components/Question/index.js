@@ -7,20 +7,18 @@ class Question extends Component {
         super(props);
     }
 
-
-
     render(){
         const thisQuestion = this.props.question;
         return (
             <Fragment>
                 <p>{thisQuestion.question}</p>
                     {thisQuestion.answers.map(answer => (
-                        <Fragment>
+                        <Fragment key={`f${thisQuestion.question}a${JSON.stringify(answer)}`}>
                             <Radio
-                                key={answer.id}
+                                key={`q${thisQuestion.id}a${JSON.stringify(answer)}`}
                                 type="radio"
                                 name="radioGroup"
-                                value={answer}
+                                value={answer.value}
                                 onChange={(event) => this.props.onChange(event.target.value)}
                             >
                             {answer.answer}

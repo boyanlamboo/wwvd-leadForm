@@ -18,9 +18,8 @@ class Question extends Component {
                                 key={`q_${thisQuestion.id}_a_${JSON.stringify(answer)}_`}
                                 type="radio"
                                 name="radioGroup"
-                                questionId={thisQuestion.id}
                                 value={answer.value}
-                                onChange={(event) => {console.log(event.target); return this.props.onChange(thisQuestion.id, event.target.value)}}
+                                onChange={(event) => this.props.onChange(thisQuestion.id, event.target.value)}
                             >
                             {answer.answer}
                             </Radio>

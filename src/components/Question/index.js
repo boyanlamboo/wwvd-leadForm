@@ -17,14 +17,14 @@ class Question extends Component {
                             <Radio
                                 key={`q_${thisQuestion.id}_a_${JSON.stringify(answer)}_`}
                                 type="radio"
-                                name="radioGroup"
+                                name={`radioGroup-${thisQuestion.question}`}
                                 value={answer.value}
                                 onChange={(event) => this.props.onChange(thisQuestion.id, thisQuestion.question, event.target.value, answer.answer)}
                             >
-                            {answer.answer}
+                                {answer.answer}
                             </Radio>
                         </Fragment>
-                        ))}
+                    ))}
             </Fragment>
         )
     }

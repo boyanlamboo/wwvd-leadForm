@@ -1,8 +1,8 @@
-import { FETCH_LEADS } from "../actions/types";
+import { ANSWER_QUESTION } from "../actions/types";
 
 export default (state = {}, action) => {
     switch (action.type) {
-        case FETCH_LEADS:
+        case ANSWER_QUESTION:
             return action.payload;
         default:
             return state;

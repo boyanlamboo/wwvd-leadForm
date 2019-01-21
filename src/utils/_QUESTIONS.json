@@ -1,0 +1,132 @@
+{
+  "questions":
+  [
+    {
+      "question":"Leveren jullie op maandag?",
+      "id": 0,
+      "answers":[{
+        "answer":"ja",
+        "value":1
+      },
+        {
+          "answer":"nee",
+          "value":0
+        }]
+    },
+    {
+      "question": "Wat is uw huidige pickuptijd?",
+      "id": 1,
+      "answers": [{
+        "answer": "1600",
+        "value":4
+      }, {
+        "answer": "1800",
+        "value":3
+      }, {
+        "answer": "2000",
+        "value": 2
+      }, {
+        "answer":"2200",
+        "value": 1
+      }, {
+        "answer":"2400",
+        "value":0
+      }]
+    },
+    {
+      "question": "hoeveel pakketten heeft u per dag?",
+      "id": 2,
+      "answers": [{
+        "answer": "< 70",
+        "value": 0
+      }, {
+        "answer": "100+",
+        "value": 1
+      }, {
+        "answer":"300+",
+        "value":2
+      }, {
+        "answer":"500+",
+        "value":3
+      }]
+    },
+    {
+      "question": "Heeft u nagedacht wat avondleveringen voor uw bedrijf kunnen betekenen?",
+      "id": 3,
+      "answers": [{
+        "answer": "ja",
+        "value":2
+      }, {
+        "answer": "nee",
+        "value":1
+      }, {
+        "answer":"misschien",
+        "value":1
+      }]
+    },
+    {
+      "question": "Wilt u aan de deur kunnen omruilen?",
+      "id": 4,
+      "answers": [{
+        "answer": "ja",
+        "value": 3
+      }, {
+        "answer": "nee",
+        "value": 1
+      }, {
+        "answer":"misschien",
+        "value": 2
+      }]
+    },
+    {
+      "question": "Hoeveel neemt uw omzet toe door gebruik te maken van same-day?",
+      "id": 5,
+      "answers": [{
+        "answer": "10%",
+        "value":0
+      }, {
+        "answer": "20%",
+        "value":0
+      }, {
+        "answer":"> 30%",
+        "value":0
+      }]
+    },
+    {
+      "question": "Heeft u customer support?",
+      "id": 6,
+      "answers": [{
+        "answer": "ja",
+        "value":1
+      }, {
+        "answer": "nee",
+        "value":0
+      }]
+    },
+    {
+      "question": "Hoeveel uur zijn zij per week met T&T bezig?",
+      "id": 7,
+      "answers": [{
+        "answer": "1-5",
+        "value":1
+      }, {
+        "answer": "5-10",
+        "value":2
+      }, {
+        "answer":"> 10",
+        "value":3
+      }]
+    },
+    {
+      "question": "Vindt u het belangrijk om hoog geplaatst te worden in de google zoekresultaten?",
+      "id": 8,
+      "answers": [{
+        "answer": "ja",
+        "value":0
+      }, {
+        "answer": "nee",
+        "value":0
+      }]
+    }
+  ]
+}

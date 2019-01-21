@@ -1,5 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
+import QuestionList from "../QuestionList";
 import * as actions from "../../actions";
 import { ControlLabel, FormControl, FormGroup, Button } from 'react-bootstrap'
 
@@ -92,6 +93,12 @@ class LeadsList extends Component {
                             required
                         />
                     </FormGroup>
+
+                    /* Render all questions */
+                    <FormGroup>
+                        <QuestionList />
+                    </FormGroup>
+
                     <FormGroup>
                         <Button bsStyle="success" type="submit" onSubmit={this.handleFormSubmit}>Lead opslaan</Button>
                     </FormGroup>

@@ -1,5 +1,13 @@
+.spacer-large {
+    margin-top: 30px;
+}
+
 .navbar {
     background-color: #201047;
+}
+
+.navbar-item {
+    color: #ffffff;
 }
 
 form {
